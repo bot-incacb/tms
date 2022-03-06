@@ -1,0 +1,38 @@
+type: object
+description: 翻译
+properties:
+  id:
+    type: integer
+    example: 1
+  lang:
+    type: string
+    description: 语言
+    example: zh-CN
+  unpublished_content:
+    type: string
+    description: 未发布内容
+    example: 头像
+  published_content:
+    type: string
+    description: 未发布内容
+    example: 头像
+  quality:
+    type: integer
+    description: 质量：1.机翻，2.人工，2.已校准
+    default: 1
+    example: 2
+    enum:
+      - 1
+      - 2
+      - 3
+  is_original:
+    type: boolean
+    description: 是否源翻译(创建词条第一条手动翻译)
+    default: false
+    example: true
+  created_at:
+    type: integer
+    example: 1646228967
+  updeted_at:
+    type: integer
+    example: 1646228967

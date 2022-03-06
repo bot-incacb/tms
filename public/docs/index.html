@@ -1,0 +1,86 @@
+<!-- HTML for static distribution bundle build -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>TMS Api</title>
+    <link rel="stylesheet" type="text/css" href="./static/swagger-ui.css" />
+    <link rel="icon" type="image/png" href="./static/favicon-32x32.png" sizes="32x32" />
+    <link rel="icon" type="image/png" href="./static/favicon-16x16.png" sizes="16x16" />
+    <style>
+      html
+      {
+        box-sizing: border-box;
+        overflow-y: scroll;
+      }
+
+      *,
+      *:before,
+      *:after
+      {
+        box-sizing: inherit;
+      }
+
+      body
+      {
+        margin:0;
+        background: #fafafa;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="swagger-ui"></div>
+
+    <script src="./static/swagger-ui-bundle.js" charset="UTF-8"> </script>
+    <script src="./static/swagger-ui-standalone-preset.js" charset="UTF-8"> </script>
+    <script>
+    window.onload = function() {
+      // Begin Swagger UI call region
+        // End Swagger UI call region
+
+        window.ui = SwaggerUIBundle({
+          url: "../apis/doc.yaml",
+          dom_id: '#swagger-ui',
+          deepLinking: true,
+          docExpansion: 'none',
+          presets: [
+              SwaggerUIBundle.presets.apis,
+              SwaggerUIStandalonePreset
+          ],
+          plugins: [
+              SwaggerUIBundle.plugins.DownloadUrl
+          ],
+          persistAuthorization: true,
+          responseInterceptor: (res) => {
+              if (!res.hasOwnProperty('body') || !res.body) {
+                  return
+              }
+
+              if (!res.body.hasOwnProperty('code') || !res.body.hasOwnProperty('data')) {
+                  return
+              }
+
+              if (res.body.code !== 200) {
+                  alert(`code: ${res.body.code}\nmsg: ${res.body.msg}`)
+                  return;
+              }
+
+              // 登录
+              if (res.body.data.hasOwnProperty('access_token')) {
+                  window.ui.preauthorizeApiKey('bearerAuth', res.body.data.access_token)
+                  localStorage.setItem('authorized', `{"bearerAuth":{"name":"bearerAuth","schema":{"type":"http","scheme":"bearer","bearerFormat":"JWT","description":"请调用登录接口获取token并填入"},"value":"${res.body.data.access_token}"}}`)
+              }
+
+              // 退出
+              if (res.url.indexOf('logout') > 0) {
+                  localStorage.removeItem('authorized')
+                  alert('已退出')
+                  window.location.reload()
+              }
+          }
+      });
+    };
+  </script>
+  </body>
+</html>

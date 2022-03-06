@@ -1,0 +1,17 @@
+type: object
+description: 用户
+properties:
+  id:
+    type: integer
+    description: 用户id
+    example: 1
+  username:
+    type: string
+    description: 用户名
+    example: "root"
+  created_at:
+    type: integer
+    example: 1646228967
+  updeted_at:
+    type: integer
+    example: 1646228967

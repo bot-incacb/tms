@@ -1,0 +1,7 @@
+post:
+  summary: 退出
+  tags:
+    - 认证
+  responses:
+    200:
+      $ref: '../responses/200.yaml'

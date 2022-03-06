@@ -1,0 +1,72 @@
+openapi: 3.0.1
+info:
+  title: TMS Api
+  description: |
+    **翻译管理系统Api**
+
+    <a href="https://www.php.net/ChangeLog-7.php#PHP_7_4" target="_blank">`PHP`</a>
+    <a href="https://laravel.com/docs/8.x" target="_blank">`Laravel`</a>
+    <a href="https://github.com/hhxsv5/laravel-s" target="_blank">`LaravelS`</a>
+    <a href="https://cloud.google.com/translate" target="_blank">`Google Cloud Translate`</a>
+    - 登录认证相关逻辑请参考 [认证文档](https://github.com/bot-incacb/tms/blob/master/public/docs/auth.md)。
+    - 请求需要登录认证的接口之前请先调用登录接口，调用成功后文档会自动切换为已登录状态。
+  version: 1.0.0
+
+tags:
+  - name: 认证
+    externalDocs:
+      url: https://github.com/bot-incacb/tms/blob/master/public/docs/auth.md
+      description: 认证文档
+
+paths:
+  # 认证
+  /auth/login:
+    $ref: 'auth/login.yaml'
+  /auth/refresh:
+    $ref: 'auth/refresh.yaml'
+  /auth/logout:
+    $ref: 'auth/logout.yaml'
+  /auth/me:
+    $ref: 'auth/me.yaml'
+
+  # 枚举
+  /enums/langs:
+    $ref: 'enums/langs.yaml'
+  /enums/qualities:
+    $ref: 'enums/qualities.yaml'
+
+  # 词条
+  /entries:
+    $ref: 'entry/index.yaml'
+  /entries/{entry_id}:
+    $ref: 'entry/id.yaml'
+  /entries/{entry_id}/tags:
+    $ref: 'entry/storetag.yaml'
+  /entries/{entry_id}/tags/{tag_id}:
+    $ref: 'entry/destroytag.yaml'
+
+  # 调试接口
+  /healthy:
+    $ref: 'debug/healthy.yaml'
+  /server_info:
+    $ref: 'debug/server_info.yaml'
+
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      description: 请调用登录接口获取token并填入
+  schemas:
+    User:
+      $ref: 'model/user.yaml'
+    Entry:
+      $ref: 'model/entry.yaml'
+    Translate:
+      $ref: 'model/translate.yaml'
+    Tag:
+      $ref: 'model/tag.yaml'
+
+security:
+  - bearerAuth: []

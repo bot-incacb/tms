@@ -1,0 +1,92 @@
+get:
+  summary: 列表
+  tags:
+    - 词条
+  parameters:
+    - in: query
+      name: page
+      description: 页码
+      schema:
+        type: integer
+        default: 1
+    - in: query
+      name: per_page
+      description: 每页数量
+      schema:
+        type: integer
+        default: 10
+    - in: query
+      name: tags
+      description: 标签列表，多个使用`,`号分隔
+      schema:
+        type: string
+        default: ''
+    - in: query
+      name: key
+      description: 词条key模糊搜索
+      schema:
+        type: string
+        default: ''
+  responses:
+    200:
+      description: 成功
+      content:
+        application/json:
+          schema:
+            allOf:
+              - $ref: '../schemas/success.yaml'
+              - type: object
+                properties:
+                  data:
+                    allOf:
+                      - $ref: '../schemas/page.yaml'
+                      - type: object
+                        properties:
+                          items:
+                            type: array
+                            items:
+                              allOf:
+                                - $ref: '../doc.yaml#/components/schemas/Entry'
+                                - type: object
+                                  properties:
+                                    current_translate:
+                                      $ref: '../doc.yaml#/components/schemas/Translate'
+                                    tags:
+                                      type: array
+                                      items:
+                                        $ref: '../doc.yaml#/components/schemas/Tag'
+
+post:
+  summary: 创建
+  description: |
+    创建词条时需要人工翻译任意一种语言的文本，之后系统会自动调用谷歌翻译接口翻译其他多种语言
+
+    词条唯一key使用统一格式规范：`{project}-{module}-{key}`，例如：`tms-auth-avatar`
+  tags:
+    - 词条
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            key:
+              type: string
+              default: tms-auth-avatar
+              description: 词条唯一key，建议使用统一规范{project}-{module}-{key} [6-100位字母、数字，`-`和`_`]
+            lang:
+              $ref: '../schemas/langs.yaml'
+            content:
+              type: string
+              default: 头像
+              description: 首选语言翻译内容 [最长300字符]
+            tags:
+              type: array
+              description: 标签
+              items:
+                type: string
+                default: 'project1'
+                description: 标签内容 [6-100位字母、数字，`-`和`_`]
+  responses:
+    200:
+      $ref: '../responses/200.yaml'

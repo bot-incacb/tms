@@ -1,0 +1,14 @@
+type: object
+properties:
+  access_token:
+    description: 令牌
+    type: string
+    default: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXV0aFwvbG9naW4iLCJpYXQiOjE2NDYyMTQ5OTEsImV4cCI6MTY0NjU3NDk5MSwibmJmIjoxNjQ2MjE0OTkxLCJqdGkiOiJWcDBrWm9aWEdxdUcyeng2Iiwic3ViIjoxLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.fA-US3Ofnxu8Fe4TrbozfK869BXsWNwpMu4_wFjgDt4
+  token_type:
+    description: 令牌类型，固定bearer
+    type: string
+    default: bearer
+  expired_at:
+    description: 过期时间戳（秒），令牌将于此时间戳之后失效
+    type: integer
+    default: 1646574991

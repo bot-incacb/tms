@@ -1,0 +1,16 @@
+type: object
+description: 词条
+properties:
+  id:
+    type: integer
+    example: 1
+  key:
+    type: string
+    description: 词条唯一key
+    example: tms-auth-avatar
+  created_at:
+    type: integer
+    example: 1646228967
+  updeted_at:
+    type: integer
+    example: 1646228967

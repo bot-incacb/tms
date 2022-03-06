@@ -1,0 +1,9 @@
+type: string
+enum:
+  - en
+  - zh-CN
+  - zh-TW
+  - th
+  - vi
+default: zh-CN
+description: 语言

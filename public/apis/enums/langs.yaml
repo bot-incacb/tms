@@ -1,0 +1,21 @@
+get:
+  summary: 语言
+  tags:
+    - 枚举
+  responses:
+    200:
+      description: 成功
+      content:
+        application/json:
+          schema:
+            allOf:
+              - $ref: '../schemas/success.yaml'
+              - type: object
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      items:
+                        type: array
+                        items:
+                          $ref: '../schemas/lang.yaml'

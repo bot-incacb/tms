@@ -1,0 +1,15 @@
+type: object
+properties:
+  current_page:
+    type: integer
+    default: 1
+    description: 当前页码
+  per_page:
+    type: integer
+    default: 10
+    description: 每页数量
+  items:
+    description: 项目列表
+    type: array
+    items:
+      nullable: true

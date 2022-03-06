@@ -1,0 +1,77 @@
+get:
+  summary: 详情
+  tags:
+    - 词条
+  parameters:
+    - in: path
+      name: entry_id
+      required: true
+      schema:
+        type: integer
+        default: 1
+  responses:
+    200:
+      description: 成功
+      content:
+        application/json:
+          schema:
+            allOf:
+              - $ref: '../schemas/success.yaml'
+              - type: object
+                properties:
+                  data:
+                    type: object
+                    allOf:
+                      - $ref: '../doc.yaml#/components/schemas/Entry'
+                      - type: object
+                        properties:
+                          translates:
+                            type: array
+                            items:
+                              $ref: '../doc.yaml#/components/schemas/Translate'
+                          tags:
+                            type: array
+                            items:
+                              $ref: '../doc.yaml#/components/schemas/Tag'
+
+put:
+  summary: 更新
+  tags:
+    - 词条
+  parameters:
+    - in: path
+      name: entry_id
+      required: true
+      schema:
+        type: integer
+        default: 1
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          required:
+            - key
+          properties:
+            key:
+              type: string
+              default: tms-auth-avatar
+              description: 词条唯一key，建议使用统一规范{project}-{module}-{key} [6-100位字母、数字，`-`和`_`]
+  responses:
+    200:
+      $ref: '../responses/200.yaml'
+
+delete:
+  summary: 删除
+  tags:
+    - 词条
+  parameters:
+    - in: path
+      name: entry_id
+      required: true
+      schema:
+        type: integer
+        default: 1
+  responses:
+    200:
+      $ref: '../responses/200.yaml'

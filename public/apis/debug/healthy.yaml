@@ -1,0 +1,14 @@
+get:
+  security: []
+  summary: 健康检查
+  description: 用于轮询探测服务健康状态
+  tags:
+    - 调试
+  responses:
+    '200':
+      description: 成功
+      content:
+        text/plain:
+          schema:
+            type: string
+            default: 'ok'

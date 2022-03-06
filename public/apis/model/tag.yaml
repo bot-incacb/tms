@@ -1,0 +1,16 @@
+type: object
+description: 标签
+properties:
+  id:
+    type: integer
+    example: 1
+  content:
+    type: string
+    description: 标签内容
+    example: project1
+  created_at:
+    type: integer
+    example: 1646228967
+  updeted_at:
+    type: integer
+    example: 1646228967

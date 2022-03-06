@@ -1,0 +1,22 @@
+get:
+  security: []
+  summary: 服务信息
+  description: 获取后端服务信息（仅用于调试）
+  tags:
+    - 调试
+  responses:
+    '200':
+      description: 成功
+      content:
+        application/json:
+          schema:
+            allOf:
+              - $ref: '../schemas/success.yaml'
+              - type: object
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      time:
+                        type: string
+                        default: 2022-03-02 15:43:39

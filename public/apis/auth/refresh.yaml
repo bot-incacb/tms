@@ -1,0 +1,16 @@
+post:
+  summary: 刷新
+  tags:
+    - 认证
+  responses:
+    '200':
+      description: 成功
+      content:
+        application/json:
+          schema:
+            allOf:
+              - $ref: '../schemas/success.yaml'
+              - type: object
+                properties:
+                  data:
+                    $ref: '../schemas/token.yaml'

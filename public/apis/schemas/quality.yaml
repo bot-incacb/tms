@@ -1,0 +1,8 @@
+type: object
+properties:
+  value:
+    type: string
+    default: '1'
+  description:
+    type: string
+    default: 机翻
