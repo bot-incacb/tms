@@ -2,7 +2,7 @@ type: object
 properties:
   value:
     type: string
-    default: zh-CN
+    example: zh-CN
   description:
     type: string
-    default: 中文(简体)
+    example: 中文(简体)

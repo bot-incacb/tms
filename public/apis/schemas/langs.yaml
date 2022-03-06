@@ -5,5 +5,5 @@ enum:
   - zh-TW
   - th
   - vi
-default: zh-CN
 description: 语言
+example: zh-CN

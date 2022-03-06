@@ -8,13 +8,13 @@ delete:
       required: true
       schema:
         type: integer
-        default: 1
+        example: 1
     - in: path
       name: tag_id
       required: true
       schema:
         type: integer
-        default: 1
+        example: 1
   responses:
     200:
       $ref: '../responses/200.yaml'

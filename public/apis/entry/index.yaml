@@ -20,13 +20,11 @@ get:
       description: 标签列表，多个使用`,`号分隔
       schema:
         type: string
-        default: ''
     - in: query
       name: key
       description: 词条key模糊搜索
       schema:
         type: string
-        default: ''
   responses:
     200:
       description: 成功
@@ -72,21 +70,21 @@ post:
           properties:
             key:
               type: string
-              default: tms-auth-avatar
               description: 词条唯一key，建议使用统一规范{project}-{module}-{key} [6-100位字母、数字，`-`和`_`]
+              example: tms-auth-avatar
             lang:
               $ref: '../schemas/langs.yaml'
             content:
               type: string
-              default: 头像
               description: 首选语言翻译内容 [最长300字符]
+              example: 头像
             tags:
               type: array
               description: 标签
               items:
                 type: string
-                default: 'project1'
                 description: 标签内容 [6-100位字母、数字，`-`和`_`]
+                example: 'project1,project2'
   responses:
     200:
       $ref: '../responses/200.yaml'

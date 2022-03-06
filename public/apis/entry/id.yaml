@@ -8,7 +8,7 @@ get:
       required: true
       schema:
         type: integer
-        default: 1
+        example: 1
   responses:
     200:
       description: 成功
@@ -44,7 +44,7 @@ put:
       required: true
       schema:
         type: integer
-        default: 1
+        example: 1
   requestBody:
     content:
       application/json:
@@ -55,7 +55,7 @@ put:
           properties:
             key:
               type: string
-              default: tms-auth-avatar
+              example: tms-auth-avatar
               description: 词条唯一key，建议使用统一规范{project}-{module}-{key} [6-100位字母、数字，`-`和`_`]
   responses:
     200:
@@ -71,7 +71,7 @@ delete:
       required: true
       schema:
         type: integer
-        default: 1
+        example: 1
   responses:
     200:
       $ref: '../responses/200.yaml'

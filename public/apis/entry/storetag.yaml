@@ -8,7 +8,7 @@ post:
       required: true
       schema:
         type: integer
-        default: 1
+        example: 1
   requestBody:
     content:
       application/json:
@@ -22,8 +22,8 @@ post:
               description: 标签
               items:
                 type: string
-                default: 'project1'
                 description: 标签内容 [6-100位字母、数字，`-`和`_`]
+                example: 'project1,project2'
   responses:
     200:
       $ref: '../responses/200.yaml'

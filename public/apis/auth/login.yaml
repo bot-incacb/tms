@@ -15,11 +15,11 @@ post:
             username:
               description: 用户名
               type: string
-              default: "root"
+              example: "root"
             password:
               description: 密码
               type: string
-              default: "123456"
+              example: "123456"
   responses:
     '200':
       description: 成功
