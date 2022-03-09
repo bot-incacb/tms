@@ -15,8 +15,20 @@ class Translate extends Model
         'is_original' => 'boolean',
     ];
 
+    protected $appends = [
+        'is_published',
+    ];
+
     public function entry(): BelongsTo
     {
         return $this->belongsTo(Entry::class);
+    }
+
+    /**
+     * @return bool
+     */
+    public function getIsPublishedAttribute(): bool
+    {
+        return ($this->attributes['unpublished_content'] ?? '') === ($this->attributes['published_content'] ?? '');
     }
 }

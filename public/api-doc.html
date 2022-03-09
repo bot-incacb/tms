@@ -61,9 +61,16 @@
                     return
                 }
 
+                if (res.body.code === 401) {
+                    localStorage.removeItem('authorized')
+                    alert('登陆失效，请重新登陆！')
+                    window.location.reload()
+                    return
+                }
+
                 if (res.body.code !== 200) {
                     alert(`code: ${res.body.code}\nmsg: ${res.body.msg}`)
-                    return;
+                    return
                 }
 
                 // 登录

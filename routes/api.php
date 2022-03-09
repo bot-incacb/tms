@@ -4,6 +4,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\EntryController;
 use App\Http\Controllers\EnumController;
 use App\Http\Controllers\PublicController;
+use App\Http\Controllers\TranslateController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -40,4 +41,10 @@ Route::group(['middleware' => 'auth'], function () {
     Route::apiResource('entries', EntryController::class);
     Route::post('entries/{entry}/tags', [EntryController::class, 'storeTags']);
     Route::delete('entries/{entry}/tags/{tag}', [EntryController::class, 'destroyTags']);
+
+    // 翻译
+    Route::put('translates/{translate}', [TranslateController::class, 'update']);
+    Route::put('translates/{translate}/calibrate', [TranslateController::class, 'calibrate']);
+    Route::put('translates/{translate}/publish', [TranslateController::class, 'publish']);
+    Route::put('translates/{translate}/cancelPublish', [TranslateController::class, 'cancelPublish']);
 });

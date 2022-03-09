@@ -25,6 +25,11 @@ properties:
       - 1
       - 2
       - 3
+  is_published:
+    type: boolean
+    description: 是否已发布
+    default: false
+    example: false
   is_original:
     type: boolean
     description: 是否源翻译(创建词条第一条手动翻译)
