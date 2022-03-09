@@ -29,6 +29,6 @@ class Translate extends Model
      */
     public function getIsPublishedAttribute(): bool
     {
-        return ($this->attributes['unpublished_content'] ?? '') === ($this->attributes['published_content'] ?? '');
+        return empty($this->attributes['unpublished_content']);
     }
 }
