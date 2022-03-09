@@ -8,14 +8,14 @@ info:
     <a href="https://laravel.com/docs/8.x" target="_blank">`Laravel`</a>
     <a href="https://github.com/hhxsv5/laravel-s" target="_blank">`LaravelS`</a>
     <a href="https://cloud.google.com/translate" target="_blank">`Google Cloud Translate`</a>
-    - 登录认证相关逻辑请参考 [认证文档](https://github.com/bot-incacb/tms/blob/master/public/docs/auth.md)。
+    - 登录认证相关逻辑请参考 [认证文档](https://github.com/bot-incacb/tms/blob/master/public/apis/auth.md)。
     - 请求需要登录认证的接口之前请先调用登录接口，调用成功后文档会自动切换为已登录状态。
   version: 1.0.0
 
 tags:
   - name: 认证
     externalDocs:
-      url: https://github.com/bot-incacb/tms/blob/master/public/docs/auth.md
+      url: https://github.com/bot-incacb/tms/blob/master/public/apis/auth.md
       description: 认证文档
 
 paths:
