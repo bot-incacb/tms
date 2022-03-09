@@ -1,0 +1,26 @@
+put:
+  summary: 更新
+  tags:
+    - 翻译
+  parameters:
+    - in: path
+      name: translate_id
+      required: true
+      schema:
+        type: integer
+        example: 1
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          required:
+            - content
+          properties:
+            content:
+              type: string
+              description: 翻译内容 [最长300字符]
+              example: 头像
+  responses:
+    200:
+      $ref: '../responses/200.yaml'

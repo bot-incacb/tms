@@ -1,0 +1,14 @@
+put:
+  summary: 校准
+  tags:
+    - 翻译
+  parameters:
+    - in: path
+      name: translate_id
+      required: true
+      schema:
+        type: integer
+        example: 1
+  responses:
+    200:
+      $ref: '../responses/200.yaml'

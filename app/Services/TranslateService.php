@@ -21,7 +21,7 @@ class TranslateService
         $data->push([
             'lang' => $lang,
             'published_content' => $content,
-            'quality' => QualityEnum::CALIBRATED,
+            'quality' => QualityEnum::ARTIFICIAL,
             'is_original' => true,
         ]);
 
