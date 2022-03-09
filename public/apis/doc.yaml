@@ -8,6 +8,7 @@ info:
     <a href="https://laravel.com/docs/8.x" target="_blank">`Laravel`</a>
     <a href="https://github.com/hhxsv5/laravel-s" target="_blank">`LaravelS`</a>
     <a href="https://cloud.google.com/translate" target="_blank">`Google Cloud Translate`</a>
+    - 接口返回数据结构以及公共返回码请参考 [返回数据说明文档](https://github.com/bot-incacb/tms/blob/master/public/apis/result.md)。
     - 登录认证相关逻辑请参考 [认证文档](https://github.com/bot-incacb/tms/blob/master/public/apis/auth.md)。
     - 请求需要登录认证的接口之前请先调用登录接口，调用成功后文档会自动切换为已登录状态。
   version: 1.0.0

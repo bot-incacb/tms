@@ -16,7 +16,7 @@ class Translate extends Model
     ];
 
     protected $appends = [
-        'is_published',
+        'has_unpublished',
     ];
 
     public function entry(): BelongsTo
@@ -27,8 +27,8 @@ class Translate extends Model
     /**
      * @return bool
      */
-    public function getIsPublishedAttribute(): bool
+    public function getHasUnpublishedAttribute(): bool
     {
-        return empty($this->attributes['unpublished_content']);
+        return !empty($this->attributes['unpublished_content']);
     }
 }

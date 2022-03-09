@@ -46,5 +46,5 @@ Route::group(['middleware' => 'auth'], function () {
     Route::put('translates/{translate}', [TranslateController::class, 'update']);
     Route::put('translates/{translate}/calibrate', [TranslateController::class, 'calibrate']);
     Route::put('translates/{translate}/publish', [TranslateController::class, 'publish']);
-    Route::put('translates/{translate}/cancelPublish', [TranslateController::class, 'cancelPublish']);
+    Route::put('translates/{translate}/revoke', [TranslateController::class, 'revoke']);
 });

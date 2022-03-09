@@ -25,10 +25,10 @@ properties:
       - 1
       - 2
       - 3
-  is_published:
+  has_unpublished:
     type: boolean
-    description: 是否已发布
-    default: false
+    description: 是否有未发布内容
+    default: true
     example: false
   is_original:
     type: boolean
