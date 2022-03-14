@@ -2,7 +2,7 @@ version: "3"
 services:
   tms:
     build: .
-    image: "php-7.4.26-laravels"
+    image: "laravels:php-7.4.26"
     container_name: tms
     restart: always
     working_dir: /app
@@ -10,7 +10,5 @@ services:
       - "${SERVER_PORT:-5200}:${SERVER_PORT:-5200}"
     volumes:
       - .:/app
-    entrypoint:
-      - /app/bin/laravels
-      - start
-      - -i
+    entrypoint: |
+      bash -c "/usr/local/bin/composer install --optimize-autoloader --no-dev && /app/bin/laravels start -i"
