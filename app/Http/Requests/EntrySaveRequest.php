@@ -37,7 +37,7 @@ class EntrySaveRequest extends FormRequest
                 Rule::unique(Entry::class)->whereNull('deleted_at')->ignore($id),
             ],
             'tags' => 'array',
-            'tags.*' => 'alpha_dash|min:6|max:100',
+            'tags.*' => 'alpha_dash|min:2|max:100',
         ];
 
         if (empty($id)) {
