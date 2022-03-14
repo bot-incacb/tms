@@ -1,0 +1,16 @@
+version: "3"
+services:
+  tms:
+    build: .
+    image: "php-7.4.26-laravels"
+    container_name: tms
+    restart: always
+    working_dir: /app
+    ports:
+      - "${SERVER_PORT:-5200}:${SERVER_PORT:-5200}"
+    volumes:
+      - .:/app
+    entrypoint:
+      - /app/bin/laravels
+      - start
+      - -i

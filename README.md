@@ -22,10 +22,10 @@ php bin/laravels start
 
 ## 线上环境
 
-|软件|版本|
-|:---:|:---:|
-|[CentOS](https://wiki.centos.org/action/show/Manuals/ReleaseNotes/CentOS7.2009?action=show&redirect=Manuals%2FReleaseNotes%2FCentOS7)|7.9.2009|
-|[PHP](https://www.php.net/ChangeLog-7.php#7.4.18)|7.4.18|
-|[Swoole](https://www.swoole.com/)|4.6.6|
-|[LaravelS](https://github.com/hhxsv5/laravel-s/blob/master/README-CN.md)|3.7.19|
-|[Laravel](https://laravel.com/docs/8.x)|8.40.0|
+|                                                                  软件                                                                   |    版本    |
+|:-------------------------------------------------------------------------------------------------------------------------------------:|:--------:|
+| [CentOS](https://wiki.centos.org/action/show/Manuals/ReleaseNotes/CentOS7.2009?action=show&redirect=Manuals%2FReleaseNotes%2FCentOS7) | 7.9.2009 |
+|                                           [PHP](https://www.php.net/ChangeLog-7.php#7.4.18)                                           |  7.4.26  |
+|                                                   [Swoole](https://www.swoole.com/)                                                   |  4.6.6   |
+|                               [LaravelS](https://github.com/hhxsv5/laravel-s/blob/master/README-CN.md)                                |  3.7.19  |
+|                                                [Laravel](https://laravel.com/docs/8.x)                                                |  8.40.0  |

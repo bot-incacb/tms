@@ -21,7 +21,7 @@ return [
     |
     */
 
-    'listen_ip' => env('LARAVELS_LISTEN_IP', '127.0.0.1'),
+    'listen_ip' => '0.0.0.0',
 
     /*
     |--------------------------------------------------------------------------
@@ -32,7 +32,7 @@ return [
     |
     */
 
-    'listen_port' => env('LARAVELS_LISTEN_PORT', 5200),
+    'listen_port' => env('SERVER_PORT', 5200),
 
     /*
     |--------------------------------------------------------------------------
@@ -55,7 +55,7 @@ return [
     |
     */
 
-    'socket_type' => env('LARAVELS_SOCKET_TYPE', defined('SWOOLE_SOCK_TCP') ? SWOOLE_SOCK_TCP : 1),
+    'socket_type' => defined('SWOOLE_SOCK_TCP') ? SWOOLE_SOCK_TCP : 1,
 
     /*
     |--------------------------------------------------------------------------
@@ -67,7 +67,7 @@ return [
     |
     */
 
-    'server' => env('LARAVELS_SERVER', 'LaravelS'),
+    'server' => env('SERVER_NAME', 'LaravelS'),
 
     /*
     |--------------------------------------------------------------------------
@@ -289,12 +289,12 @@ return [
         'daemonize' => env('LARAVELS_DAEMONIZE', false),
         'dispatch_mode' => env('LARAVELS_DISPATCH_MODE', 2),
         'reactor_num' => env('LARAVELS_REACTOR_NUM', function_exists('swoole_cpu_num') ? swoole_cpu_num() : 8),
-        'worker_num' => env('LARAVELS_WORKER_NUM', function_exists('swoole_cpu_num') ? swoole_cpu_num() * 4 : 8),
+        'worker_num' => env('SERVER_WORKER_NUM', function_exists('swoole_cpu_num') ? swoole_cpu_num() * 4 : 8),
         //'task_worker_num'    => env('LARAVELS_TASK_WORKER_NUM', function_exists('swoole_cpu_num') ? swoole_cpu_num() * 4 : 8),
         'task_ipc_mode' => 1,
         'task_max_request' => env('LARAVELS_TASK_MAX_REQUEST', 100000),
         'task_tmpdir' => @is_writable('/dev/shm/') ? '/dev/shm' : '/tmp',
-        'max_request' => env('LARAVELS_MAX_REQUEST', 100000),
+        'max_request' => env('SERVER_MAX_REQUEST', 100000),
         'open_tcp_nodelay' => true,
         'pid_file' => storage_path('laravels.pid'),
         'log_level' => 4,
