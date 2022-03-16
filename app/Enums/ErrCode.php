@@ -12,9 +12,6 @@ final class ErrCode extends BaseEnum
     /** 认证失败 */
     const UNAUTHORIZED = 401;
 
-    /** 密码已过期 */
-    const PASSWORD_EXPIRED = 402;
-
     /** 没有权限 */
     const HTTP_AUTHORIZATION = 403;
 
@@ -46,7 +43,6 @@ final class ErrCode extends BaseEnum
 
     public static array $descriptions = [
         self::UNAUTHORIZED => '认证失败',
-        self::PASSWORD_EXPIRED => '密码已过期',
         self::HTTP_AUTHORIZATION => '没有权限',
         self::HTTP_NOT_FOUND => '路由错误',
         self::METHOD_NOT_ALLOWED => '请求方式错误',
