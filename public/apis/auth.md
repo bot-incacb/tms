@@ -1,11 +1,11 @@
 # 登录认证
 
-使用 `JWT` 的方式进行用户登陆认证，关于 `JWT` 的说明可以阅读 [JWT入门教程](https://www.ruanyifeng.com/blog/2018/07/json_web_token-tutorial.html)。
+使用 `JWT` 的方式进行用户登录认证，关于 `JWT` 的说明可以阅读 [JWT入门教程](https://www.ruanyifeng.com/blog/2018/07/json_web_token-tutorial.html)。
 
 ## 登录方式
 
 1. 请求登录接口。
-2. 登录成功后前端保存返回的 `access_token` 、`token_type` 以及 `expired_at` 字段，前端自行保存并维护登陆状态。
+2. 登录成功后前端保存返回的 `access_token` 、`token_type` 以及 `expired_at` 字段，前端自行保存并维护登录状态。
 
 ## 接口认证
 
@@ -27,4 +27,4 @@ Authorization: "Bearer eyJ0eXAiOfiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlw
 
 ## 异常处理
 
-后端接口返回 `401` 码时，代表登陆错误或者token失效，此时需要清空登录状态并提示重新登录。
+后端接口返回 `401` 码时，代表登录错误或者token失效，此时需要清空登录状态并提示重新登录。
