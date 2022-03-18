@@ -44,6 +44,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::delete('entries/{entry}/tags/{tag}', [EntryController::class, 'destroyTags']);
     Route::put('entries/{entry}/publish', [EntryController::class, 'publish']);
     Route::put('entries/{entry}/revoke', [EntryController::class, 'revoke']);
+    Route::get('entries/{entry}/histories', [EntryController::class, 'histories']);
 
     // 翻译
     Route::put('translates/{translate}', [TranslateController::class, 'update']);

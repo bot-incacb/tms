@@ -3,6 +3,7 @@
 namespace App\Services;
 
 use App\Models\Entry;
+use App\Models\History;
 use App\Models\Translate;
 use Illuminate\Support\Facades\DB;
 
@@ -52,13 +53,26 @@ class EntryService
             return;
         }
 
+        $histories = [];
         foreach ($translates as $translate) {
+            $histories[] = [
+                'lang' => $translate->lang,
+                'old' => $translate->published_content,
+                'new' => $translate->unpublished_content,
+            ];
+
             $translate->published_content = $translate->unpublished_content;
             $translate->unpublished_content = '';
             $translate->save();
         }
 
         $entry->update(['has_unpublished' => false]);
+
+        $history = new History([
+            'data' => $histories,
+        ]);
+        $history->entry()->associate($entry);
+        $history->save();
     }
 
     /**

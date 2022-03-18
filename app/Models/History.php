@@ -2,15 +2,18 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class History extends Model
 {
-    protected $hidden = ['translate_id', 'prev_id'];
+    protected $hidden = ['entry_id'];
 
-    public function prev(): BelongsTo
+    protected $casts = [
+        'data' => 'array',
+    ];
+
+    public function entry(): BelongsTo
     {
-        return $this->belongsTo(History::class, 'prev_id');
+        return $this->belongsTo(Entry::class);
     }
 }

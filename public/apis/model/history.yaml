@@ -1,0 +1,30 @@
+type: object
+description: 发布历史
+properties:
+  id:
+    type: integer
+    example: 1
+  data:
+    type: array
+    items:
+      type: object
+      description: 修改记录数据
+      properties:
+        lang:
+          type: string
+          description: 语言
+          example: zh-CN
+        old:
+          type: string
+          description: 旧值
+          example: abc
+        new:
+          type: string
+          description: 新值
+          example: xyz
+  created_at:
+    type: integer
+    example: 1646228967
+  updeted_at:
+    type: integer
+    example: 1646228967

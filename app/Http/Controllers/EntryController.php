@@ -91,4 +91,15 @@ class EntryController extends Controller
     {
         $service->revoke($entry);
     }
+
+    /**
+     * 发布历史
+     *
+     * @param Entry $entry
+     * @return array
+     */
+    public function histories(Entry $entry)
+    {
+        return ['items' => $entry->histories];
+    }
 }

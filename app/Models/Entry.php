@@ -33,4 +33,9 @@ class Entry extends Model
     {
         return $this->belongsToMany(Tag::class);
     }
+
+    public function histories(): HasMany
+    {
+        return $this->hasMany(History::class)->orderByDesc('id');
+    }
 }

@@ -1,0 +1,28 @@
+get:
+  summary: '发布历史'
+  tags:
+    - 词条
+  parameters:
+    - in: path
+      name: entry_id
+      required: true
+      schema:
+        type: integer
+        example: 1
+  responses:
+    200:
+      description: 成功
+      content:
+        application/json:
+          schema:
+            allOf:
+              - $ref: '../schemas/success.yaml'
+              - type: object
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      items:
+                        type: array
+                        items:
+                          $ref: '../model/history.yaml'
