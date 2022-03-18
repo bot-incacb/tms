@@ -3,6 +3,7 @@
 namespace App\Services;
 
 use App\Models\Entry;
+use App\Models\Translate;
 use Illuminate\Support\Facades\DB;
 
 class EntryService
@@ -41,6 +42,23 @@ class EntryService
      */
     public function publish(Entry $entry)
     {
+        // 获取需要发布的翻译数据
+        $translates = $entry->translates->filter(function (Translate $translate) {
+            return $translate->is_unpublished;
+        });
+
+        if ($translates->isEmpty()) {
+            $entry->update(['has_unpublished' => false]);
+            return;
+        }
+
+        foreach ($translates as $translate) {
+            $translate->published_content = $translate->unpublished_content;
+            $translate->unpublished_content = '';
+            $translate->save();
+        }
+
+        $entry->update(['has_unpublished' => false]);
     }
 
     /**
@@ -51,6 +69,22 @@ class EntryService
      */
     public function revoke(Entry $entry)
     {
+        // 获取需要发布的翻译数据
+        $translates = $entry->translates->filter(function (Translate $translate) {
+            return $translate->is_unpublished;
+        });
+
+        if ($translates->isEmpty()) {
+            $entry->update(['has_unpublished' => false]);
+            return;
+        }
+
+        foreach ($translates as $translate) {
+            $translate->unpublished_content = '';
+            $translate->save();
+        }
+
+        $entry->update(['has_unpublished' => false]);
 
     }
 }

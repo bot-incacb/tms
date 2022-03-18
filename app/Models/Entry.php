@@ -9,6 +9,10 @@ use Illuminate\Support\Facades\App;
 
 class Entry extends Model
 {
+    protected $casts = [
+        'has_unpublished' => 'boolean',
+    ];
+
     /**
      * 获取当前语言翻译
      *
