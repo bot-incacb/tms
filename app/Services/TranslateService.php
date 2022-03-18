@@ -20,7 +20,7 @@ class TranslateService
         $data = collect();
         $data->push([
             'lang' => $lang,
-            'published_content' => $content,
+            'unpublished_content' => $content,
             'quality' => QualityEnum::ARTIFICIAL,
             'is_original' => true,
         ]);

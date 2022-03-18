@@ -81,10 +81,10 @@ post:
             tags:
               type: array
               description: 标签
+              example: ['project1', 'project2']
               items:
                 type: string
                 description: 标签内容 [6-100位字母、数字，`-`和`_`]
-                example: 'project1,project2'
   responses:
     200:
       $ref: '../responses/200.yaml'

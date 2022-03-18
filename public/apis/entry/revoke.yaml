@@ -1,10 +1,10 @@
 put:
-  summary: 发布
+  summary: 撤销
   tags:
-    - 翻译
+    - 词条
   parameters:
     - in: path
-      name: translate_id
+      name: entry_id
       required: true
       schema:
         type: integer

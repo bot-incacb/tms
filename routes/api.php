@@ -42,10 +42,10 @@ Route::group(['middleware' => 'auth'], function () {
     Route::apiResource('entries', EntryController::class);
     Route::post('entries/{entry}/tags', [EntryController::class, 'storeTags']);
     Route::delete('entries/{entry}/tags/{tag}', [EntryController::class, 'destroyTags']);
+    Route::put('entries/{entry}/publish', [EntryController::class, 'publish']);
+    Route::put('entries/{entry}/revoke', [EntryController::class, 'revoke']);
 
     // 翻译
     Route::put('translates/{translate}', [TranslateController::class, 'update']);
     Route::put('translates/{translate}/calibrate', [TranslateController::class, 'calibrate']);
-    Route::put('translates/{translate}/publish', [TranslateController::class, 'publish']);
-    Route::put('translates/{translate}/revoke', [TranslateController::class, 'revoke']);
 });

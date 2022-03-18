@@ -33,4 +33,24 @@ class EntryService
         $tagData = (new TagService)->getOrCreateByContent($tags);
         $entry->tags()->syncWithoutDetaching($tagData);
     }
+
+    /**
+     * 发布
+     *
+     * @param Entry $entry
+     */
+    public function publish(Entry $entry)
+    {
+    }
+
+    /**
+     * 撤销
+     *
+     * @param Entry $entry
+     * @return void
+     */
+    public function revoke(Entry $entry)
+    {
+
+    }
 }

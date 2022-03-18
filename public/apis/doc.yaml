@@ -47,16 +47,16 @@ paths:
     $ref: 'entry/storetag.yaml'
   /entries/{entry_id}/tags/{tag_id}:
     $ref: 'entry/destroytag.yaml'
+  /entries/{entry_id}/publish:
+    $ref: 'entry/publish.yaml'
+  /entries/{entry_id}/revoke:
+    $ref: 'entry/revoke.yaml'
 
   # 翻译
   /translates/{translate_id}:
     $ref: 'translate/id.yaml'
   /translates/{translate_id}/calibrate:
     $ref: 'translate/calibrate.yaml'
-  /translates/{translate_id}/publish:
-    $ref: 'translate/publish.yaml'
-  /translates/{translate_id}/revoke:
-    $ref: 'translate/revoke.yaml'
 
   # 调试接口
   /healthy:

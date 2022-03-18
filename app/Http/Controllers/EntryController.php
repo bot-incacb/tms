@@ -67,4 +67,28 @@ class EntryController extends Controller
     {
         $entry->tags()->detach($tag);
     }
+
+    /**
+     * 发布
+     *
+     * @param Entry $entry
+     * @param EntryService $service
+     * @return void
+     */
+    public function publish(Entry $entry, EntryService $service)
+    {
+        $service->publish($entry);
+    }
+
+    /**
+     * 撤销
+     *
+     * @param Entry $entry
+     * @param EntryService $service
+     * @return void
+     */
+    public function revoke(Entry $entry, EntryService $service)
+    {
+        $service->revoke($entry);
+    }
 }

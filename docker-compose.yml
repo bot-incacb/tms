@@ -11,4 +11,4 @@ services:
     volumes:
       - .:/app
     entrypoint: |
-      bash -c "/usr/local/bin/composer install --optimize-autoloader --no-dev && /app/bin/laravels start -i"
+      bash -c "/usr/local/bin/composer install --optimize-autoloader --no-dev && php /app/artisan migrate --force && /app/bin/laravels start -i"

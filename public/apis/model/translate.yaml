@@ -8,13 +8,9 @@ properties:
     type: string
     description: 语言
     example: zh-CN
-  unpublished_content:
+  content:
     type: string
-    description: 未发布内容
-    example: 头像
-  published_content:
-    type: string
-    description: 未发布内容
+    description: 内容
     example: 头像
   quality:
     type: integer
@@ -25,9 +21,9 @@ properties:
       - 1
       - 2
       - 3
-  has_unpublished:
+  is_unpublished:
     type: boolean
-    description: 是否有未发布内容
+    description: 是否未发布
     default: true
     example: false
   is_original:

@@ -8,6 +8,8 @@ class Translate extends Model
 {
     protected $hidden = [
         'entry_id',
+        'unpublished_content',
+        'published_content',
     ];
 
     protected $casts = [
@@ -16,7 +18,8 @@ class Translate extends Model
     ];
 
     protected $appends = [
-        'has_unpublished',
+        'is_unpublished',
+        'content',
     ];
 
     public function entry(): BelongsTo
@@ -27,8 +30,17 @@ class Translate extends Model
     /**
      * @return bool
      */
-    public function getHasUnpublishedAttribute(): bool
+    public function getIsUnpublishedAttribute(): bool
     {
         return !empty($this->attributes['unpublished_content']);
+    }
+
+    public function getContentAttribute(): string
+    {
+        if (!empty($this->attributes['unpublished_content'])) {
+            return $this->attributes['unpublished_content'];
+        }
+
+        return $this->attributes['published_content'] ?? '';
     }
 }
