@@ -30,6 +30,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::group(['prefix' => 'auth'], function () {
         Route::post('logout', [AuthController::class, 'logout']);
         Route::get('me', [AuthController::class, 'me']);
+        Route::put('password', [AuthController::class, 'changePassword']);
     });
 
     Route::group(['prefix' => 'enums'], function () {

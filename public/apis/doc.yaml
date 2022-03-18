@@ -29,6 +29,8 @@ paths:
     $ref: 'auth/logout.yaml'
   /auth/me:
     $ref: 'auth/me.yaml'
+  /auth/password:
+    $ref: 'auth/password.yaml'
 
   # 枚举
   /enums/langs:

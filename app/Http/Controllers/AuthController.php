@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Enums\ErrCode;
 use App\Exceptions\CException;
+use App\Http\Requests\ChangePasswordRequest;
 use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Tymon\JWTAuth\JWTAuth;
 
 class AuthController extends Controller
@@ -70,5 +72,16 @@ class AuthController extends Controller
             'token_type' => 'bearer',
             'expired_at' => now()->addSeconds($auth->factory()->getTTL() * 60)->timestamp,
         ];
+    }
+
+    /**
+     * 修改密码
+     *
+     * @param ChangePasswordRequest $request
+     * @return void
+     */
+    public function changePassword(ChangePasswordRequest $request)
+    {
+        Auth::user()->update(['password' => $request->input('password')]);
     }
 }
