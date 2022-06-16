@@ -15,9 +15,12 @@ class Result
     {
         // 获取语言
         $lang = $request->header('x-lang');
-        if (LangEnum::hasValue($lang)) {
+        if ($lang && LangEnum::hasValue($lang)) {
             App::setLocale($lang);
+        } else {
+            App::setLocale(config('app.locale'));
         }
+
         // 强制请求为json类型
         $request->headers->set('Accept', 'application/json');
 
