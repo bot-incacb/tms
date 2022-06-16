@@ -21,7 +21,7 @@ return [
     |
     */
 
-    'listen_ip' => '0.0.0.0',
+    'listen_ip' => env('SERVER_LISTEN', '0.0.0.0'),
 
     /*
     |--------------------------------------------------------------------------
@@ -55,7 +55,7 @@ return [
     |
     */
 
-    'socket_type' => defined('SWOOLE_SOCK_TCP') ? SWOOLE_SOCK_TCP : 1,
+    'socket_type' => env('SERVER_SOCKET_TYPE', defined('SWOOLE_SOCK_TCP') ? SWOOLE_SOCK_TCP : 1),
 
     /*
     |--------------------------------------------------------------------------
