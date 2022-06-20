@@ -102,4 +102,15 @@ class EntryController extends Controller
     {
         return ['items' => $entry->histories];
     }
+
+    /**
+     * 锚点列表
+     *
+     * @param Entry $entry
+     * @return array
+     */
+    public function anchors(Entry $entry)
+    {
+        return ['items' => $entry->anchors];
+    }
 }

@@ -45,6 +45,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::put('entries/{entry}/publish', [EntryController::class, 'publish']);
     Route::put('entries/{entry}/revoke', [EntryController::class, 'revoke']);
     Route::get('entries/{entry}/histories', [EntryController::class, 'histories']);
+    Route::get('entries/{entry}/anchors', [EntryController::class, 'anchors']);
 
     // 翻译
     Route::put('translates/{translate}', [TranslateController::class, 'update']);

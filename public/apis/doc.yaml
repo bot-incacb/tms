@@ -53,6 +53,8 @@ paths:
     $ref: 'entry/revoke.yaml'
   /entries/{entry_id}/histories:
     $ref: 'entry/history.yaml'
+  /entries/{entry_id}/anchors:
+    $ref: 'entry/anchor.yaml'
   # 翻译
   /translates/{translate_id}:
     $ref: 'translate/id.yaml'

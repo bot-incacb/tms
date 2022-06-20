@@ -38,4 +38,9 @@ class Entry extends Model
     {
         return $this->hasMany(History::class)->orderByDesc('id');
     }
+
+    public function anchors(): BelongsToMany
+    {
+        return $this->belongsToMany(Anchor::class);
+    }
 }

@@ -1,0 +1,24 @@
+type: object
+description: 锚点
+properties:
+  id:
+    type: integer
+    example: 1
+  key:
+    type: string
+    description: 词条唯一key
+    example: tms-auth-avatar
+  url:
+    type: string
+    description: 链接
+    example: https://test.com/abc/#abc?q=1
+  remark:
+    type: string
+    description: 备注
+    example: 公共模板顶部
+  created_at:
+    type: integer
+    example: 1646228967
+  updeted_at:
+    type: integer
+    example: 1646228967
