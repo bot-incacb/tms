@@ -124,7 +124,9 @@ return [
     'cipher' => 'AES-256-CBC',
 
     // 接口默认每分钟限制请求次数
-    'api_limit' => env('API_LIMIT', 60),
+    'api_limit' => env('API_LIMIT', 120),
+
+    'openapi_limit' => env('OPENAPI_LIMIT', 60),
 
     'proxy_header' => env('PROXY_HEADER', 'x-forwarded-for'),
 

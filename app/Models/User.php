@@ -36,11 +36,6 @@ class User extends Authenticatable implements JWTSubject
         return $date->getTimestamp();
     }
 
-    /**
-     * 修改器
-     *
-     * @param $value
-     */
     public function setPasswordAttribute($value): void
     {
         $this->attributes['password'] = Hash::make($value);

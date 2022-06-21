@@ -103,6 +103,8 @@ return [
 
     'ttl' => env('JWT_TTL', 60),
 
+    'openapi_ttl' => env('JWT_OPENAPI_TTL', 120),
+
     /*
     |--------------------------------------------------------------------------
     | Refresh time to live

@@ -43,9 +43,10 @@ class RouteServiceProvider extends ServiceProvider
                 ->namespace($this->namespace)
                 ->group(base_path('routes/api.php'));
 
-            // Route::middleware('web')
-            //     ->namespace($this->namespace)
-            //     ->group(base_path('routes/web.php'));
+            Route::prefix('openapi')
+                ->middleware('openapi')
+                ->name($this->namespace)
+                ->group(base_path('routes/openapi.php'));
         });
     }
 
@@ -68,6 +69,19 @@ class RouteServiceProvider extends ServiceProvider
 
             if (Auth::check() && Auth::id()) {
                 $limits[] = Limit::perMinute($limit)->by($request->path() . '|' . Auth::id());
+            }
+
+            return $limits;
+        });
+
+        // openapi 接口限制
+        $openLimit = config('app.api_limit');
+        RateLimiter::for('openapi', function (Request $request) use ($openLimit) {
+            $limits = [Limit::perMinute($openLimit)->by($request->path() . '|' . $request->ip())];
+
+            $auth = Auth::guard('openapi');
+            if ($auth->check() && $auth->id()) {
+                $limits[] = Limit::perMinute($openLimit)->by($request->path() . '|' . $auth->id());
             }
 
             return $limits;
