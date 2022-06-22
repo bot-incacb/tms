@@ -10,8 +10,8 @@ return new class extends Migration {
         Schema::create('anchors', function (Blueprint $table) {
             $table->id();
             $table->string('key')->unique()->comment('唯一key');
-            $table->string('url')->comment('链接');
-            $table->string('ramark')->default('')->comment('备注');
+            $table->string('url', 500)->comment('链接');
+            $table->string('remark')->default('')->comment('备注');
             $table->timestamps();
             $table->softDeletes();
         });

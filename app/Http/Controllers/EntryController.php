@@ -23,6 +23,7 @@ class EntryController extends Controller
                 $value = '%' . $request->input('key') . '%';
                 $builder->where('key', 'like', $value);
             })
+            ->latest('id')
             ->page();
     }
 

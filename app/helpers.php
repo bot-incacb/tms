@@ -113,7 +113,7 @@ function google_translate(string $str, string $targetLang = '', string $sourceLa
     $translate = translator();
 
     // 正则替换变量
-    preg_match_all('/{[a-z_0-9]*}/i', $str, $m);
+    preg_match_all('/{[a-z_\d]*}/i', $str, $m);
     $isReplace = isset($m[0]) && $m[0];
     if ($isReplace) {
         $replaces = [];

@@ -16,5 +16,6 @@ Route::post('login', [OpenapiController::class, 'login']);
 |--------------------------------------------------------------------------
 */
 Route::group(['middleware' => 'auth:openapi'], function () {
-    Route::get('test', [OpenapiController::class, 'test']);
+    Route::get('entries', [OpenapiController::class, 'getEntries']);
+    Route::post('anchors', [OpenapiController::class, 'syncAnchors']);
 });
